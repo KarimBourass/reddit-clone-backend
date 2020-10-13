@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class NotificationEmail {
     private String subject;
-    private String recipient;
+    private String recipient; //go receive the email
     private String body;
 }
