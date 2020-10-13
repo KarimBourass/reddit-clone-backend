@@ -38,6 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.GET, "/api/subreddit")
                 .permitAll()
+                .antMatchers(HttpMethod.GET, "/api/posts/")
+                .permitAll()
                 .anyRequest()
                 .authenticated();
 

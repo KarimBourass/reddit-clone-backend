@@ -2,6 +2,7 @@ package com.service;
 
 import com.dto.SubredditDto;
 import com.exception.SubredditNotFoundException;
+import com.mapper.SubredditMapper;
 import com.model.Subreddit;
 import com.repository.SubredditRepository;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ public class SubredditService {
 
     private final SubredditRepository subredditRepository;
     private final AuthService authService;
+    private final SubredditMapper subredditMapper;
 
     @Transactional(readOnly = true)
     public List<SubredditDto> getAll() {
@@ -50,7 +52,7 @@ public class SubredditService {
     }
 
     private Subreddit mapToSubreddit(SubredditDto subredditDto) {
-        return Subreddit.builder().name("/r/" + subredditDto.getName())
+        return Subreddit.builder().name(subredditDto.getName())
                 .description(subredditDto.getDescription())
                 .user(authService.getCurrentUser())
                 .createdDate(now()).build();
