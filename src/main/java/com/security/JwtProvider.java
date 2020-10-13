@@ -90,6 +90,7 @@ public class JwtProvider {
     }
 
     public Long getJwtExpirationInMillis() {
+
         return jwtExpirationInMillis;
     }
 }
