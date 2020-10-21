@@ -24,7 +24,7 @@ public class RefreshTokenService {
     }
     void validateRefreshToken(String token) {
         refreshTokenRepository.findByToken(token)
-                .orElseThrow(() -> new SpringRedditException("Invalid refresh Token"));
+                .orElseThrow(() -> new SpringRedditException("Invalid refresh Token or don't existe ! "));
     }
     public void deleteRefreshToken(String token) {
         refreshTokenRepository.deleteByToken(token);
